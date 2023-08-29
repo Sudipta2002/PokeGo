@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './SearchBox.css'
 const SearchBox = () => {
   return (
-    <div>SearchBox</div>
+    <input className='search' type='search ' placeholder='Search Pokemons'/>
   )
 }
 
