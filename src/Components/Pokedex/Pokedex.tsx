@@ -9,21 +9,21 @@ interface PokedexProps{
     pokemons: PokemonSchema[];
     selectedPokemon: PokemonSchema | undefined;
     onInputChange: (inputValue: string) => void;
-    // onPokemonClick: (pokemonName: string) => void;
+    onPokemonClick: (pokemonName: string) => void;
 }
 
-const Pokedex=({pokemons, selectedPokemon,onInputChange}:PokedexProps)=>{
-    console.log(pokemons);
+const Pokedex=({pokemons, selectedPokemon,onInputChange,onPokemonClick}:PokedexProps)=>{
+    // console.log(pokemons);
   return (
     <div className='pokedex-container'>
        <div className="pokelist-container">
             {/* <p>List of Pokemons</p> */}
             <SearchBox onInputChange={onInputChange}/>
-            <PokeList pokeList={pokemons}/>
+            <PokeList pokeList={pokemons} onPokemonClick={onPokemonClick}/>
        </div>
         <div className="pokesearch-container">
             {/* <p>Searching Pokemons</p> */}
-            <PokeSearchResult/>
+            <PokeSearchResult selectedPokemon={selectedPokemon}/>
         </div>
     </div>
   );

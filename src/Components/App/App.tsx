@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-// import logo from './logo.svg';
+import { debounce } from 'lodash'
 import './App.css';
 import Pokedex from '../Pokedex/Pokedex';
 import { pokemonData } from '../../Data/pokeData';
@@ -40,8 +40,12 @@ const App: React.FC = ()=> {
 
       return patchedPokemons;
   }
+  // const debouncedSearch = debounce(async (criteria: string) => {
+  //   setSearchField(criteria);
+  // }, 3000); 
   const handleInputChange = (inputValue: string) => {
     setSearchField(inputValue);
+    // debouncedSearch(inputValue);
 
     const filteredPokemons = allPokemons.filter(
         (pokemon: PokemonSchema) => {
@@ -64,13 +68,19 @@ const App: React.FC = ()=> {
     setAllPokemons(patchedPokemons);
     setSearchedPokemons(patchedPokemons);
   }, [])
-  
+  const handleClick = (pokemonName: string) => {
+    const selectedPokemon = allPokemons.find(
+        (pokemon: PokemonSchema) => pokemon.name === pokemonName
+    );
+
+    setSelectedPokemon(selectedPokemon);
+};
   return (
     <div className='App'>
       <h1>Pokedex</h1>
       <Pokedex pokemons={searchedPokemons}
                 onInputChange={handleInputChange}
-                // onPokemonClick={handleClick}
+                onPokemonClick={handleClick}
                 selectedPokemon={selectedPokemon}
                 />
     </div>

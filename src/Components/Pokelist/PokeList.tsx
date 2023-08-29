@@ -5,9 +5,10 @@ import { PokemonSchema } from '../../types/PokemonSchema';
 
 interface PokeListProps{
   pokeList: PokemonSchema[];
+  onPokemonClick: (pokemonName: string) => void;
 }
 
-const PokeList = ({pokeList}:PokeListProps) => {
+const PokeList = ({pokeList,onPokemonClick}:PokeListProps) => {
   return (
     <div className="pokelist">
         {pokeList.map((pokemon) => {
@@ -17,7 +18,7 @@ const PokeList = ({pokeList}:PokeListProps) => {
                             key={pokemon.id}
                             name={pokemon.name}
                             spriteUrl={pokemon.sprites.normal}
-                            // onPokemonClick={onPokemonClick}
+                            onPokemonClick={onPokemonClick}
                         />
                     )
                 );

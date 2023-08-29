@@ -3,13 +3,13 @@ import './PokeCard.css';
 interface PokecardProps {
   spriteUrl?: string;
   name: string;
-  // onPokemonClick: (pokemonName: string) => void;
+  onPokemonClick: (pokemonName: string) => void;
 }
-const PokeCard = ({ name, spriteUrl }: PokecardProps) => {
+const PokeCard = ({ name, spriteUrl, onPokemonClick}: PokecardProps) => {
   return (
-    <div className="pokecard">
+    <div onClick={() => onPokemonClick(name)} className="pokecard">
       <img className="pokemon-sprite" alt="pokemon" src={spriteUrl} />
-      <p>{name}</p>
+      <p className='name'>{name}</p>
     </div>
   )
 }

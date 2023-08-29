@@ -15,6 +15,11 @@
     flex-grow: 1;
 }
 
+.name {
+    font-size: 12px;
+    font-family: "Press Start 2P", cursive;
+}
+
 .pokecard:hover {
     transform: scale(1.05);
 }
