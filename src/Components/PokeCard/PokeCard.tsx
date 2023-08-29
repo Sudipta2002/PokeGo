@@ -1,8 +1,10 @@
 import React from 'react'
-
-const PokeCard = () => {
+import './PokeCard.css';
+const PokeCard = (props:any) => {
   return (
-    <div>PokeCard</div>
+    <div className='pokecard'>
+        <p>{props.name} </p>
+    </div>
   )
 }
 
