@@ -82,7 +82,7 @@ const App: React.FC = ()=> {
                 onInputChange={handleInputChange}
                 onPokemonClick={handleClick}
                 selectedPokemon={selectedPokemon}
-                />
+        />
     </div>
   );
 }
